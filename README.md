@@ -18,10 +18,8 @@ As part of Day 10 of my 100-Day DevOps Challenge, I developed a Bash automation 
 - **Security:** No passwords can be prompted during execution.
 - **Cleanup:** Local backups are stored in a temporary directory cleaned weekly.
 
-## 🔧 Setup & Usage
-
-# Step-by-Step Implementation Guide
-# Follow these steps to replicate the environment and run the script.
+## Step-by-Step Implementation Guide
+### Follow these steps to replicate the environment and run the script.
 
 ## Step 1: Install Dependencies
 ## The script requires the zip utility. Install it manually on the App Server:
@@ -32,21 +30,21 @@ sudo yum install zip -y
 ## For Ubuntu/Debian:
 sudo apt install zip -y
 
-# Step 2: Configure Passwordless SSH
-# To satisfy the requirement that the script must not ask for a password, we set up SSH keys between App Server 1 and the Nautilus Backup Server.
+## Step 2: Configure Passwordless SSH
+### To satisfy the requirement that the script must not ask for a password, we set up SSH keys between App Server 1 and the Nautilus Backup Server.
 
-# Generate the SSH Key (on App Server 1):
+### Generate the SSH Key (on App Server 1):
 
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
-## Copy the Key to the Backup Server:
+### Copy the Key to the Backup Server:
 
-## Replace 'tony' with username and 'backup-server' with backup servername or IP
+### Replace 'tony' with username and 'backup-server' with backup servername or IP
 ssh-copy-id tony@backup-server
 Verify: Try ssh tony@backup-server. If you log in without a password, you are ready!
 
-# Step 3: Set Up the Script
-# Create the directory:
+## Step 3: Set Up the Script
+### Create the directory:
 
 mkdir -p /scripts
 Create the file:
