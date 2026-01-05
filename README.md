@@ -24,3 +24,52 @@ As part of Day 10 of my 100-Day DevOps Challenge, I developed a Bash automation 
 Ensure `zip` is installed:
 ```bash
 yum install zip -y  # or apt install zip
+
+# Step-by-Step Implementation Guide
+#Follow these steps to replicate the environment and run the script.
+
+#Step 1: Install Dependencies
+#The script requires the zip utility. Install it manually on the App Server:
+
+#Bash
+
+# For RHEL/CentOS/Rocky Linux:
+sudo yum install zip -y
+
+# For Ubuntu/Debian:
+sudo apt install zip -y
+
+#Step 2: Configure Passwordless SSH
+#To satisfy the requirement that the script must not ask for a password, we set up SSH keys between App Server 1 and the Nautilus Backup Server.
+
+#Generate the SSH Key (on App Server 1):
+
+#Bash
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+
+#Copy the Key to the Backup Server:
+#Bash
+# Replace 'tony' with username and 'backup-server' with backup servername or IP
+ssh-copy-id tony@backup-server
+Verify: Try ssh tony@backup-server. If you log in without a password, you are ready!
+
+#Step 3: Set Up the Script
+#Create the directory:
+
+#Bash
+
+mkdir -p /scripts
+#Create the file:
+
+#Bash
+
+vi /scripts/beta_backup.sh
+Paste the script content (found in /scripts/beta_backup.sh of this repo).
+
+Step 4: Set Permissions and Run
+The script must be executable by the server user:
+
+Bash
+
+chmod +x /scripts/beta_backup.sh
+/scripts/beta_backup.sh
