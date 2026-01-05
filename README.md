@@ -41,18 +41,22 @@ ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
 ### Replace 'tony' with username and 'backup-server' with backup servername or IP
 ssh-copy-id tony@backup-server
+
 Verify: Try ssh tony@backup-server. If you log in without a password, you are ready!
 
 ## Step 3: Set Up the Script
 ### Create the directory:
 
 mkdir -p /scripts
+
 Create the file:
 
 vi /scripts/beta_backup.sh
+
 Paste the script content (found in /scripts/beta_backup.sh of this repo).
 
 Step 4: Set Permissions and Run
+
 The script must be executable by the server user:
 
 chmod +x /scripts/beta_backup.sh
