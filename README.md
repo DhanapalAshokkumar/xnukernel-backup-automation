@@ -20,11 +20,6 @@ As part of Day 10 of my 100-Day DevOps Challenge, I developed a Bash automation 
 
 ## 🔧 Setup & Usage
 
-### 1. Prerequisites
-Ensure `zip` is installed:
-```bash
-yum install zip -y  # or apt install zip
-
 # Step-by-Step Implementation Guide
 #Follow these steps to replicate the environment and run the script.
 
